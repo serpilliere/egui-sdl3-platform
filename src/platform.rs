@@ -233,7 +233,7 @@ impl Platform {
     /// Return the processed context
     pub fn begin_frame(&mut self, window: &sdl3::video::Window) -> egui::Context {
         let screen_size = window.size();
-        self.pixels_per_point = window.display_scale();
+        self.pixels_per_point = 1.0;
         // Set the pixels per point
         self.egui_ctx.set_pixels_per_point(self.pixels_per_point);
         self.raw_input.screen_rect = Some(egui::Rect::from_min_size(
