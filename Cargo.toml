@@ -18,3 +18,7 @@ log = "0.4.28"
 sdl3 = "0.17.3"
 
 thiserror = "2.0.17"
+
+[features]
+sdl3-static = ["sdl3/build-from-source-static"]
+default = []
