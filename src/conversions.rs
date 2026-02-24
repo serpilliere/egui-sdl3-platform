@@ -35,6 +35,7 @@ impl ToEguiKey for sdl3::keyboard::Keycode {
             Keycode::Kp7 | Keycode::_7 => Key::Num7,
             Keycode::Kp8 | Keycode::_8 => Key::Num8,
             Keycode::Kp9 | Keycode::_9 => Key::Num9,
+            Keycode::KpEnter => Key::Enter,
             Keycode::A => Key::A,
             Keycode::B => Key::B,
             Keycode::C => Key::C,
