@@ -23,6 +23,7 @@ pub struct Platform {
 
     // The egui context
     egui_ctx: egui::Context,
+    window: sdl3::video::Window,
 }
 
 impl Platform {
@@ -49,6 +50,7 @@ impl Platform {
             modifiers: Modifiers::default(),
             egui_ctx: egui::Context::default(),
             start_time: std::time::Instant::now(),
+            window: (*window).clone()
         })
     }
 
@@ -60,11 +62,15 @@ impl Platform {
                 win_event: WindowEvent::Resized(w, h),
                 ..
             } => {
+                let scaler = self.window.pixel_density();
+                let w = (*w as f32 * scaler) as i32;
+                let h = (*h as f32 * scaler) as i32;
+
                 self.raw_input.screen_rect = Some(egui::Rect::from_min_size(
                     egui::Pos2::ZERO,
                     egui::Vec2 {
-                        x: *w as f32,
-                        y: *h as f32,
+                        x: w as f32,
+                        y: h as f32,
                     },
                 ));
             }
