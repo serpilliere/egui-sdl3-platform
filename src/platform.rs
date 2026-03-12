@@ -113,7 +113,7 @@ impl Platform {
             // Handle mouse motion
             Event::MouseMotion { x, y, .. } => {
                 // Update the pointer position
-                self.pointer_pos = egui::Pos2::new(*x, *y) / self.pixels_per_point;
+                self.pointer_pos = egui::Pos2::new(*x, *y);
                 self.raw_input
                     .events
                     .push(egui::Event::PointerMoved(self.pointer_pos));
@@ -244,7 +244,7 @@ impl Platform {
         self.egui_ctx.set_pixels_per_point(self.pixels_per_point);
         self.raw_input.screen_rect = Some(egui::Rect::from_min_size(
             egui::Pos2::ZERO,
-            egui::vec2(screen_size.0 as f32, screen_size.1 as f32) / self.pixels_per_point,
+            egui::vec2(screen_size.0 as f32, screen_size.1 as f32) * window.pixel_density(),
         ));
         self.raw_input.time = Some(self.start_time.elapsed().as_secs_f64());
 
