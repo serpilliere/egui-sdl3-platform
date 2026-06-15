@@ -29,7 +29,6 @@ pub struct Platform {
 impl Platform {
     /// Construct a new [`Platform`]
     pub fn new(sdl: &sdl3::Sdl, window: &sdl3::video::Window) -> crate::Result<Self> {
-        sdl.video()?.text_input().start(window);
         Ok(Self {
             cursor: Cursor::from_system(SystemCursor::Arrow)
                 .map_err(|e| log::warn!("Failed to get cursor from systems cursor: {}", e))
