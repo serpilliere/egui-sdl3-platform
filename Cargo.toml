@@ -15,7 +15,7 @@ include = ["**/*.rs", "Cargo.toml"]
 [dependencies]
 egui = "0.33.0"
 log = "0.4.28"
-sdl3 = { git = "https://github.com/serpilliere/sdl3-rs", branch="fix-keyup-modstate-customev", features = ["raw-window-handle"]}
+sdl3 = { git = "https://github.com/serpilliere/sdl3-rs", branch="fix-modstate-customev-0.18.4", features = ["raw-window-handle"]}
 
 
 thiserror = "2.0.17"
